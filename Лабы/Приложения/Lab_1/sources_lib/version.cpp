@@ -6,5 +6,5 @@
 	ZeroMemory(&ver, sizeof(OSVERSIONINFO));
 	ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 	GetVersionEx((OSVERSIONINFO*)&ver);
-	return ver.dwMinorVersion;
+	return ver.dwMajorVersion;
 }
