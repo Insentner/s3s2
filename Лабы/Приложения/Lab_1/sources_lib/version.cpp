@@ -1,10 +1,35 @@
 #include <head.h>
 
- unsigned long os_version()
+//const char *os_version()
+//{
+//	if (IsWindows8Point1OrGreater())
+//	{
+//		return "8.1";
+//	}
+//	if (IsWindows8OrGreater())
+//	{
+//		return "8";
+//	}
+//	if (IsWindows7OrGreater())
+//	{
+//		return "7";
+//	}
+//	if (IsWindowsVistaOrGreater())
+//	{
+//		return "Vista";
+//	}
+//	if (IsWindowsXPOrGreater())
+//	{
+//		return "XP";
+//	}
+//	return "Unknown";
+//}
+
+OSVERSIONINFO os_version()
 {
 	OSVERSIONINFO ver;
 	ZeroMemory(&ver, sizeof(OSVERSIONINFO));
 	ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 	GetVersionEx((OSVERSIONINFO*)&ver);
-	return ver.dwMajorVersion;
+	return ver;
 }

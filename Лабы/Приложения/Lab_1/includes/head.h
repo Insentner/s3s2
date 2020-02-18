@@ -7,6 +7,7 @@ using namespace std;
 #include <Windows.h>
 #include <Lmcons.h>
 #include <conio.h>
+#include <VersionHelpers.h>
 
 string pc_name();
 string user_name();
@@ -15,4 +16,6 @@ string sys_dir();
 string win_dir();
 string temp_path();
 
-unsigned long os_version();
+//const char *os_version();
+
+OSVERSIONINFO os_version();

@@ -1,9 +1,14 @@
 ﻿#include <head.h>
 
+
 void main(void)
 {
 	do
 	{
+			//const char *osVersionName = os_version();
+
+			//std::printf("Running under Windows %s\n", osVersionName);
+		
 		cout << "Select penis or no" << endl;
 		switch (_getch())
 		{
@@ -20,9 +25,8 @@ void main(void)
 			break;
 		case'3':
 			system("cls");
-			cout << "My pipiska is " << os_version() << endl;
-			cout << "My pipiska is " << win_dir() << endl;
-			cout << "My pipiska is " << temp_path() << endl;
+
+			cout << "My pipiska is " << os_version().dwMajorVersion << "." << os_version().dwMinorVersion << "." << os_version().dwBuildNumber << endl;
 			break;
 		case'4':
 			system("cls");
