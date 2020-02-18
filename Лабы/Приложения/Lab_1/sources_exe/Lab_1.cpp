@@ -25,12 +25,12 @@ void main(void)
 			break;
 		case'3':
 			system("cls");
-
-			cout << "My pipiska is " << os_version().dwMajorVersion << "." << os_version().dwMinorVersion << "." << os_version().dwBuildNumber << endl;
+			cout << "My pipiska is Windows or no" << os_version_1() << endl;
+			cout << "My pipiska is " << os_version_0().dwMajorVersion << "." << os_version_0().dwMinorVersion << "." << os_version_0().dwBuildNumber << endl;
 			break;
 		case'4':
 			system("cls");
-			cout << "My pipiska is " << sys_dir() << endl;
+			cout << "My pipiska is " << sys_metrics() << endl;
 			cout << "My pipiska is " << win_dir() << endl;
 			cout << "My pipiska is " << temp_path() << endl;
 			break;

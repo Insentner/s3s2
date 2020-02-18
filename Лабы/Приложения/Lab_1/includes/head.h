@@ -16,6 +16,7 @@ string sys_dir();
 string win_dir();
 string temp_path();
 
-//const char *os_version();
+OSVERSIONINFO os_version_0();
+const char *os_version_1();
 
-OSVERSIONINFO os_version();
+string sys_metrics(void);
