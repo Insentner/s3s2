@@ -24,3 +24,8 @@ int *sys_metrics(int out[]);
 string sys_parameters(void);
 
 int *sys_parameters(int aMouseInfo[]);
+
+int WINAPI WinMain(HINSTANCE hInstance, // дескриптор экземпляра приложения
+	HINSTANCE hPrevInstance, // в Win32 не используется
+	LPSTR lpCmdLine, // нужен для запуска окна в режиме командной строки
+	int nCmdShow);
