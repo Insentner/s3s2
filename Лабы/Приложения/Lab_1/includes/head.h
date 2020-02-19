@@ -9,14 +9,18 @@ using namespace std;
 #include <conio.h>
 #include <VersionHelpers.h>
 
-string pc_name();
-string user_name();
+string pc_name(void);
+string user_name(void);
 
-string sys_dir();
-string win_dir();
-string temp_path();
+string sys_dir(void);
+string win_dir(void);
+string temp_path(void);
 
-OSVERSIONINFO os_version_0();
-const char *os_version_1();
+OSVERSIONINFO os_version_0(void);
+const char *os_version_1(void);
 
-string sys_metrics(void);
+int *sys_metrics(int out[]);
+
+string sys_parameters(void);
+
+int *sys_parameters(int aMouseInfo[]);

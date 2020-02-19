@@ -1,6 +1,8 @@
 #include <head.h>
 
-string sys_metrics(void)
+int *sys_metrics(int out[])
 {
-	return string("%d", GetSystemMetrics(SM_CXSCREEN));
+	out[0] = GetSystemMetrics(SM_CXSCREEN);
+	out[1] = GetSystemMetrics(SM_CYSCREEN);
+	return out;
 }

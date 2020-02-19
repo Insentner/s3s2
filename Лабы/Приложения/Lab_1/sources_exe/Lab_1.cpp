@@ -1,40 +1,48 @@
 ﻿#include <head.h>
 
-
 void main(void)
 {
 	do
 	{
-			//const char *osVersionName = os_version();
 
-			//std::printf("Running under Windows %s\n", osVersionName);
+		int out[2];
+		int a[3];
 		
-		cout << "Select penis or no" << endl;
+		cout << "Select or not select" << endl;
 		switch (_getch())
 		{
 		case'1':
 			system("cls");
-			cout << "My pipiska is " << pc_name() << endl;
-			cout << "My pipiska is " << user_name() << endl;
+			cout << "My name is " << pc_name() << endl;
+			cout << "Your name is " << user_name() << endl;
 			break;
 		case'2':
 			system("cls");
-			cout << "My pipiska is " << sys_dir() << endl;
-			cout << "My pipiska is " << win_dir() << endl;
-			cout << "My pipiska is " << temp_path() << endl;
+			cout << "My System32 directory is " << sys_dir() << endl;
+			cout << "My Windows directory is " << win_dir() << endl;
+			cout << "My Temp directory is " << temp_path() << endl;
 			break;
 		case'3':
 			system("cls");
-			cout << "My pipiska is Windows or no" << os_version_1() << endl;
-			cout << "My pipiska is " << os_version_0().dwMajorVersion << "." << os_version_0().dwMinorVersion << "." << os_version_0().dwBuildNumber << endl;
+			cout << "My Windows under " << os_version_1() << endl;
+			cout << "My Windows version is " << os_version_0().dwMajorVersion << "." << os_version_0().dwMinorVersion << "." << os_version_0().dwBuildNumber << endl;
 			break;
 		case'4':
 			system("cls");
-			cout << "My pipiska is " << sys_metrics() << endl;
-			cout << "My pipiska is " << win_dir() << endl;
-			cout << "My pipiska is " << temp_path() << endl;
+			sys_metrics(out);
+			cout << "My screen is " << out[0] << "x" << out[1] << endl;
 			break;
 		case'5':
+			system("cls");
+			sys_parameters(a);
+			cout << "My mouse is " << a[1] << endl;
+			break;
+		case'6':
+			system("cls");
+
+			cout << "My is " << endl;
+			break;
+		case'7':
 			exit(0);
 		}
 		system("pause");

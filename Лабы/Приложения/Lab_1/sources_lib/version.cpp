@@ -1,6 +1,6 @@
 #include <head.h>
 
-const char *os_version_1()
+const char *os_version_1(void)
 {
 	if (IsWindows8Point1OrGreater())
 	{
