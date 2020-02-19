@@ -43,6 +43,13 @@ void main(void)
 			cout << "My is " << endl;
 			break;
 		case'7':
+			system("cls");
+
+			cout << "My is " << endl;
+			break;
+
+
+		case'9':
 			exit(0);
 		}
 		system("pause");
