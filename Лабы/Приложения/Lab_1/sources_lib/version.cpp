@@ -25,11 +25,19 @@ const char *os_version_1(void)
 	return "Unknown";
 }
 
-OSVERSIONINFO os_version_0(void)
-{
-	OSVERSIONINFO ver;
-	ZeroMemory(&ver, sizeof(OSVERSIONINFO));
-	ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-	GetVersionEx((OSVERSIONINFO*)&ver);
-	return ver;
-}
+//OSVERSIONINFO os_version_0(void)
+//{
+//	OSVERSIONINFO ver;
+//	ZeroMemory(&ver, sizeof(OSVERSIONINFO));
+//	ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+//	GetVersionInfo((OSVERSIONINFO*)&ver);
+//	return ver;
+//}
+
+//LPOSVERSIONINFOEXA *os_version_0(void)
+//{
+//	LPOSVERSIONINFOEXA ver;
+//	ZeroMemory(&ver, sizeof(LPOSVERSIONINFOEXA));
+//	VerifyVersionInfoA(ver, VER_MAJORVERSION, https://docs.microsoft.com/ru-ru/windows/win32/api/winnt/nf-winnt-versetconditionmask);
+//	return &ver;
+//}

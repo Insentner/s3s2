@@ -5,8 +5,8 @@ void main(void)
 	do
 	{
 
-		int out[2];
-		int a[3];
+		int out[3];
+		//int a[3];
 		
 		cout << "Select or not select" << endl;
 		switch (_getch())
@@ -25,7 +25,7 @@ void main(void)
 		case'3':
 			system("cls");
 			cout << "My Windows under " << os_version_1() << endl;
-			cout << "My Windows version is " << os_version_0().dwMajorVersion << "." << os_version_0().dwMinorVersion << "." << os_version_0().dwBuildNumber << endl;
+			//cout << "My Windows version is " << os_version_0().dwMajorVersion << "." << os_version_0()->dwMinorVersion << "." << os_version_0()->dwBuildNumber << endl;
 			break;
 		case'4':
 			system("cls");
@@ -34,8 +34,8 @@ void main(void)
 			break;
 		case'5':
 			system("cls");
-			sys_parameters(a);
-			cout << "My mouse is " << a[1] << endl;
+			sys_parameters(out);
+			cout << "My mouse is " << out[1] << endl;
 			break;
 		case'6':
 			system("cls");

@@ -16,16 +16,16 @@ string sys_dir(void);
 string win_dir(void);
 string temp_path(void);
 
-OSVERSIONINFO os_version_0(void);
+//OSVERSIONINFO os_version_0(void);
+//LPOSVERSIONINFOEXA *os_version_0(void);
+
 const char *os_version_1(void);
 
 int *sys_metrics(int out[]);
 
-string sys_parameters(void);
+int *sys_parameters(int mouse_info[]);
 
-int *sys_parameters(int aMouseInfo[]);
-
-int WINAPI WinMain(HINSTANCE hInstance, // дескриптор экземпляра приложения
-	HINSTANCE hPrevInstance, // в Win32 не используется
-	LPSTR lpCmdLine, // нужен для запуска окна в режиме командной строки
-	int nCmdShow);
+//int WINAPI WinMain(HINSTANCE hInstance, // дескриптор экземпляра приложения
+//	HINSTANCE hPrevInstance, // в Win32 не используется
+//	LPSTR lpCmdLine, // нужен для запуска окна в режиме командной строки
+//	int nCmdShow);
