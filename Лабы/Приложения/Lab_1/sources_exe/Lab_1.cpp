@@ -35,7 +35,9 @@ void main(void)
 		case'5':
 			system("cls");
 			sys_parameters(out);
+			cout << "My mouse is " << out[0] << endl;
 			cout << "My mouse is " << out[1] << endl;
+			cout << "My mouse is " << out[2] << endl;
 			break;
 		case'6':
 			system("cls");
