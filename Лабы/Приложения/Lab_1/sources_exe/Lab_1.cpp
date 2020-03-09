@@ -6,6 +6,8 @@ void main(void)
 	{
 
 		int out[3];
+		OSVERSIONINFO ver;
+		SYSTEMTIME sys_time;
 		//int a[3];
 		
 		cout << "Select or not select" << endl;
@@ -25,32 +27,37 @@ void main(void)
 		case'3':
 			system("cls");
 			cout << "My Windows under " << os_version_1() << endl;
-			//cout << "My Windows version is " << os_version_0().dwMajorVersion << "." << os_version_0()->dwMinorVersion << "." << os_version_0()->dwBuildNumber << endl;
+			os_version_0(&ver);
+			cout << "My Windows version is " << ver.dwMajorVersion << "." << ver.dwMinorVersion << "." << ver.dwBuildNumber << endl;
 			break;
 		case'4':
 			system("cls");
-			sys_metrics(out);
+			display_metrics(out);
 			cout << "My screen is " << out[0] << "x" << out[1] << endl;
 			break;
 		case'5':
 			system("cls");
-			sys_parameters(out);
-			cout << "My mouse is " << out[0] << endl;
-			cout << "My mouse is " << out[1] << endl;
-			cout << "My mouse is " << out[2] << endl;
+			mouse_parameters(out);
+			cout << "My mouse X is " << out[0] << endl;
+			cout << "My mouse Y is " << out[1] << endl;
+			cout << "My mouse acceleration is " << out[2] << endl;
 			break;
 		case'6':
 			system("cls");
 
-			cout << "My is " << endl;
+			cout << "My color is " << sys_colors() << endl;
 			break;
 		case'7':
 			system("cls");
-
-			cout << "My is " << endl;
+			local_time(&sys_time);
+			cout << "My date is " << setfill('0') << setw(2) << sys_time.wDay << "." << setfill('0') << setw(2) << sys_time.wMonth << "." << sys_time.wYear << endl;
+			cout << "My time is " << setfill('0') << setw(2) << sys_time.wHour << ":" << setfill('0') << setw(2) << sys_time.wMinute << ":" << setfill('0') << setw(2) << sys_time.wSecond << endl;
 			break;
+		case'8':
+			system("cls");
 
-
+			cout << "My is " << "" << endl;
+			break;
 		case'9':
 			exit(0);
 		}

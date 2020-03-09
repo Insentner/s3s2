@@ -25,14 +25,14 @@ const char *os_version_1(void)
 	return "Unknown";
 }
 
-//OSVERSIONINFO os_version_0(void)
-//{
-//	OSVERSIONINFO ver;
-//	ZeroMemory(&ver, sizeof(OSVERSIONINFO));
-//	ver.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-//	GetVersionInfo((OSVERSIONINFO*)&ver);
-//	return ver;
-//}
+int os_version_0(OSVERSIONINFO *ver)
+{
+	ZeroMemory(ver, sizeof(OSVERSIONINFO));
+	ver->dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+	GetVersionEx((OSVERSIONINFO*)ver);
+	//return ver;
+	return 0;
+}
 
 //LPOSVERSIONINFOEXA *os_version_0(void)
 //{
