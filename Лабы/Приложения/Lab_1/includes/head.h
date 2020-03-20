@@ -29,7 +29,6 @@ int local_time(SYSTEMTIME *sys_time);
 
 unsigned long sys_colors(void);
 
-//int WINAPI WinMain(HINSTANCE hInstance, // дескриптор экземпляра приложения
-//	HINSTANCE hPrevInstance, // в Win32 не используется
-//	LPSTR lpCmdLine, // нужен для запуска окна в режиме командной строки
-//	int nCmdShow);
+double works_time(void);
+string drive_type(void);
+

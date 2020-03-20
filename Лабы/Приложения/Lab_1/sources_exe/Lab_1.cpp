@@ -8,8 +8,7 @@ void main(void)
 		int out[3];
 		OSVERSIONINFO ver;
 		SYSTEMTIME sys_time;
-		//int a[3];
-		
+	
 		cout << "Select or not select" << endl;
 		switch (_getch())
 		{
@@ -44,8 +43,7 @@ void main(void)
 			break;
 		case'6':
 			system("cls");
-
-			cout << "My color is " << sys_colors() << endl;
+			cout << "My background color is " << sys_colors() << endl;
 			break;
 		case'7':
 			system("cls");
@@ -55,8 +53,13 @@ void main(void)
 			break;
 		case'8':
 			system("cls");
-
-			cout << "My is " << "" << endl;
+			cout << "My system works " << works_time() << " hours" << endl;
+			cout << "My disk C is " << drive_type() << endl;
+			/*SYSTEM_INFO siSysInfo;
+			GetSystemInfo(&siSysInfo);
+			cout << "Тип процессора : " << siSysInfo.dwProcessorType << endl;
+			cout << "Кол-во ядер : " << siSysInfo.dwNumberOfProcessors << endl;
+*/
 			break;
 		case'9':
 			exit(0);
