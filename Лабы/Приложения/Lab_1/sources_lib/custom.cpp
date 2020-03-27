@@ -17,3 +17,5 @@ string drive_type(void)
 	if (d == DRIVE_RAMDISK) return "RAMDISK";
 	return 0;
 }
+
+
