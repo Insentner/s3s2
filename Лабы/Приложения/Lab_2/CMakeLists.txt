@@ -2,5 +2,4 @@
 
 project ("lab_2")
 
-add_subdirectory ("sources_lib")
 add_subdirectory ("sources_exe")

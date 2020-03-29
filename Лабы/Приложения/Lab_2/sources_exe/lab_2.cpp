@@ -4,18 +4,155 @@ void main(void)
 {
 	do
 	{
-		cout << "Select or not select" << endl;
+		cout << "Select one of the following tasks:\n1 - Output process/library full name, handle and id by name\n2 - Output id, pseudo handle and handle of current process\n3 -  " << endl;
 		switch (_getch())
 		{
-		case'1':
-			system("cls");
-			cout << "My name is " << endl;
-			cout << "Your name is " << endl;
-			break;
+			case'1':
+			{
+				bool exit = 0;
+				do
+				{
+					system("cls");
+					cout << "Select or not select1" << endl;
+					switch (_getch())
+					{
+					case'1':
+					{
+						system("cls");
+						char file_name[MAX_PATH];
+						DWORD prcs_id;
+						string prsc_name;
+						HWND hndl_wndw;
+						HANDLE hndl_prcs;
 
-			break;
-		case'9':
-			exit(0);
+						cout << "Enter process name:" << endl;
+						cin >> prsc_name;
+						hndl_wndw = FindWindowA(0, prsc_name.c_str());
+						GetWindowThreadProcessId(hndl_wndw, &prcs_id);
+						if (hndl_wndw)
+						{
+							cout << prcs_id << endl;
+							hndl_prcs = OpenProcess(PROCESS_ALL_ACCESS, FALSE, prcs_id);
+							cout << hndl_prcs << endl;
+							GetModuleFileNameEx(hndl_prcs, NULL, file_name, MAX_PATH);
+							cout << file_name << endl;
+							CloseHandle(hndl_prcs);
+						}
+						else
+						{
+							cout << "Window not found" << endl;
+						}
+						system("pause");
+						break;
+					}
+					case'2':
+					{
+						system("cls");
+						cout << "Enter library name:" << endl;
+						char file_name[MAX_PATH];
+						string mdl_name;
+
+						cin >> mdl_name;
+						cout << GetModuleHandleA(mdl_name.c_str()) << endl;
+						GetModuleFileName(GetModuleHandleA(mdl_name.c_str()), file_name, MAX_PATH);
+						cout << file_name << endl;
+						system("pause");
+						break;
+					}
+					case'3':
+					{
+						exit = 1;
+						break;
+					}
+					}
+					if(exit)break;
+				} while (1);
+				break;
+				
+			}
+		    case'2':
+		    {
+			    system("cls");
+				HANDLE hndl_psd = GetCurrentProcess();
+				DWORD prcs_id = GetCurrentProcessId();
+				HANDLE hndl_DH;
+				HANDLE hndl_OP;
+				
+			    cout << "current process id: " << prcs_id << endl;
+
+			    cout << "current process pseudo handle: " << hndl_psd << endl;
+
+				DuplicateHandle(hndl_psd, hndl_psd, hndl_psd, &hndl_DH, NULL, FALSE, DUPLICATE_SAME_ACCESS);
+				cout << "current process handle by DuplicateHandle: " << hndl_DH << endl;
+
+				hndl_OP = OpenProcess(PROCESS_DUP_HANDLE, FALSE, prcs_id);
+			    cout << "current process handle by OpenProcess: " << hndl_OP << endl;
+
+			    CloseHandle(hndl_DH);
+			    CloseHandle(hndl_OP);
+
+			    break;
+		    }
+			case'3':
+			{
+				bool exit = 0;
+				do
+				{
+					system("cls");
+					cout << "Select or not select11" << endl;
+					switch (_getch())
+					{
+					case'1':
+					{
+						system("cls");
+						HANDLE hndl_snp;
+						hndl_snp = CreateToolhelp32Snapshot(TH32CS_SNAPALL, 0);
+						if (hndl_snp == NULL) break;
+						PROCESSENTRY32 strc_prcs;
+						strc_prcs.dwSize = sizeof(strc_prcs);
+
+						if (Process32First(hndl_snp, &strc_prcs))
+						{
+							do
+							{
+								wcout << strc_prcs.szExeFile << L" \t\tprocess id: " << strc_prcs.th32ProcessID << L" \tnumber of threads: " << strc_prcs.cntThreads << endl;
+							} while (Process32Next(hndl_snp, &strc_prcs));
+						}
+						system("pause");
+						break;
+					}
+					case'2':
+					{
+						system("cls");
+						HANDLE hndl_snp;
+						hndl_snp = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, 0);
+						if (hndl_snp == NULL) break;
+						MODULEENTRY32 strc_mdl;
+						strc_mdl.dwSize = sizeof(strc_mdl);
+						if (Module32First(hndl_snp, &strc_mdl))
+						{
+							do
+							{
+								wcout << strc_mdl.szModule << left << L" \t\tprocess id:\t " << strc_mdl.th32ProcessID << L" \tsize:\t " << strc_mdl.modBaseSize << L" bytes " << endl;
+							} while (Module32Next(hndl_snp, &strc_mdl));
+						}
+						system("pause");
+						break;
+					}
+					case'3':
+					{
+						exit = 1;
+						break;
+					}
+					}
+					if (exit) break;
+				} while (1);
+				break;
+			}
+		    case'4':
+		    {
+			    exit(0);
+		    }	
 		}
 		system("pause");
 		system("cls");
