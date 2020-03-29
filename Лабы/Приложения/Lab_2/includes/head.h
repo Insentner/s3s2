@@ -10,3 +10,4 @@ using namespace std;
 #include <Lmcons.h>
 #include <TlHelp32.h>
 #include <Psapi.h>
+#include <thread>

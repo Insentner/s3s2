@@ -4,7 +4,7 @@ void main(void)
 {
 	do
 	{
-		cout << "Select one of the following tasks:\n1 - Output process/library full name, handle and id by name\n2 - Output id, pseudo handle and handle of current process\n3 -  " << endl;
+		cout << "Select one of the following tasks:\n1 - Output process/library full name, handle and id by name\n2 - Output id, pseudo handle and handle of current process\n3 - Output all processes/modules and their properties\n4 - exit" << endl;
 		switch (_getch())
 		{
 			case'1':
@@ -13,13 +13,13 @@ void main(void)
 				do
 				{
 					system("cls");
-					cout << "Select or not select1" << endl;
+					cout << "Select task option:\n1 - of process\n2 - of module\n3 - back" << endl;
 					switch (_getch())
 					{
 					case'1':
 					{
 						system("cls");
-						char file_name[MAX_PATH];
+						char prcs_fullname[MAX_PATH];
 						DWORD prcs_id;
 						string prsc_name;
 						HWND hndl_wndw;
@@ -31,16 +31,16 @@ void main(void)
 						GetWindowThreadProcessId(hndl_wndw, &prcs_id);
 						if (hndl_wndw)
 						{
-							cout << prcs_id << endl;
+							cout << "process id:" << prcs_id << endl;
 							hndl_prcs = OpenProcess(PROCESS_ALL_ACCESS, FALSE, prcs_id);
-							cout << hndl_prcs << endl;
-							GetModuleFileNameEx(hndl_prcs, NULL, file_name, MAX_PATH);
-							cout << file_name << endl;
+							cout << "process handle:" << hndl_prcs << endl;
+							GetModuleFileNameEx(hndl_prcs, NULL, prcs_fullname, MAX_PATH);
+							cout << "process full name:" << prcs_fullname << endl;
 							CloseHandle(hndl_prcs);
 						}
 						else
 						{
-							cout << "Window not found" << endl;
+							cout << "Process not found" << endl;
 						}
 						system("pause");
 						break;
@@ -49,13 +49,21 @@ void main(void)
 					{
 						system("cls");
 						cout << "Enter library name:" << endl;
-						char file_name[MAX_PATH];
+						char mdl_fullname[MAX_PATH];
 						string mdl_name;
-
+						HMODULE hndl_mdl;
 						cin >> mdl_name;
-						cout << GetModuleHandleA(mdl_name.c_str()) << endl;
-						GetModuleFileName(GetModuleHandleA(mdl_name.c_str()), file_name, MAX_PATH);
-						cout << file_name << endl;
+						hndl_mdl = GetModuleHandleA(mdl_name.c_str());
+						if (hndl_mdl)
+						{
+							cout << hndl_mdl << endl;
+							GetModuleFileName(GetModuleHandleA(mdl_name.c_str()), mdl_fullname, MAX_PATH);
+							cout << mdl_fullname << endl;					
+						}
+						else
+						{
+							cout << "Module not found" << endl;
+						}
 						system("pause");
 						break;
 					}
@@ -80,6 +88,8 @@ void main(void)
 				
 			    cout << "current process id: " << prcs_id << endl;
 
+				cout << "current process thread: "<< this_thread::get_id << endl;
+
 			    cout << "current process pseudo handle: " << hndl_psd << endl;
 
 				DuplicateHandle(hndl_psd, hndl_psd, hndl_psd, &hndl_DH, NULL, FALSE, DUPLICATE_SAME_ACCESS);
@@ -93,13 +103,14 @@ void main(void)
 
 			    break;
 		    }
+			
 			case'3':
 			{
 				bool exit = 0;
 				do
 				{
 					system("cls");
-					cout << "Select or not select11" << endl;
+					cout << "Select task option:\n1 - show all processes\n2 - show all modules\n3 - back" << endl;
 					switch (_getch())
 					{
 					case'1':
