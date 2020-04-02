@@ -1,31 +1,5 @@
 #include <head.h>
 
-//void rnd_fill(HANDLE evnt, stringstream &out)
-//{
-//	out << "\nthread ID: " << this_thread::get_id() << "\n";
-//	srand(time(NULL));
-//	for (int i = 0; i <= 15; i++)
-//	{
-//		out << rand() % 10;
-//	}
-//	SetEvent(evnt);
-//}
-//
-//void rnd_sort(HANDLE evnt, stringstream &out)
-//{
-//	WaitForSingleObject(evnt, INFINITE);
-//	string lox;
-//	
-//	out >> lox;
-//	lox += "sasat";
-//	cout << lox << endl;
-//
-//
-//	sort(lox.begin(), lox.end());
-//	out << "\nthread ID: " << this_thread::get_id() << "\n";
-//	//out << lox;
-//}
-
 void txt_write(HANDLE evnt0, string &out)
 {
 	ofstream f_out("E:\\file.txt");
@@ -71,8 +45,6 @@ void txt_read(HANDLE evnt1, string &out)
 	stringstream id;
 	string line;
 	f_in.open("E:\\file.txt", ios::in);
-	//out += +  + ;
-	/*i <= 6*/
 	while (getline(f_in, line, '\n'))
 	{
 		out += line + "\n";
