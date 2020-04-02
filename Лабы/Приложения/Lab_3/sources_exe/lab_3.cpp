@@ -40,7 +40,7 @@ void main(void)
 		case'3':
 		{
 			system("cls");
-			cout << "Event selected:\nsync parallel write, modify and read\na text from .txt file." << endl;
+			cout << "Event selected:\nsync parallel write, modify and read\na text from .txt file.\nEnter text:\n" << endl;
 			HANDLE evnt0 = CreateEvent(NULL, FALSE, FALSE, NULL);
 			HANDLE evnt1 = CreateEvent(NULL, FALSE, FALSE, NULL);
 			string out;
