@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-using namespace std;
-
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -9,6 +7,8 @@ using namespace std;
 #include <Lmcons.h>
 #include <conio.h>
 #include <VersionHelpers.h>
+
+using namespace std;
 
 string pc_name(void);
 string user_name(void);

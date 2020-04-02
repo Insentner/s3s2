@@ -27,7 +27,7 @@ void main(void)
 
 						cout << "Enter process name:" << endl;
 						cin >> prsc_name;
-						hndl_wndw = FindWindowA(0, prsc_name.c_str());
+						hndl_wndw = FindWindowA(NULL, prsc_name.c_str());
 						GetWindowThreadProcessId(hndl_wndw, &prcs_id);
 						if (hndl_wndw)
 						{
