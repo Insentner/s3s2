@@ -30,7 +30,6 @@ int os_version_0(OSVERSIONINFO *ver)
 	ZeroMemory(ver, sizeof(OSVERSIONINFO));
 	ver->dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
 	GetVersionEx((OSVERSIONINFO*)ver);
-	//return ver;
 	return 0;
 }
 

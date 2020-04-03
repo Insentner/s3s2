@@ -13,7 +13,7 @@ void main(void)
 			system("cls");
 			cout << "" << endl;
 			
-			cout << out.rdbuf() << endl;
+			cout << "" << endl;
 			break;
 		}
 		case'2':

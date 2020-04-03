@@ -7,15 +7,25 @@ void main(void)
 		switch (_getch())
 		{
 		case'1':
-@@ -25,58 +20,67 @@ void main(void)
+			system("cls");
+			cout << "My name is " << pc_name() << endl;
+			cout << "Your name is " << user_name() << endl;
+			break;
+		case'2':
+			system("cls");
+			cout << "My System32 directory is " << sys_dir() << endl;
+			cout << "My Windows directory is " << win_dir() << endl;
+			cout << "My Temp directory is " << temp_path() << endl;
 			break;
 		case'3':
+		{
 			system("cls");
 			OSVERSIONINFO ver;
 			cout << "My Windows under " << os_version_1() << endl;
 			os_version_0(&ver);
 			cout << "My Windows version is " << ver.dwMajorVersion << "." << ver.dwMinorVersion << "." << ver.dwBuildNumber << endl;
 			break;
+		}
 		case'4':
 		{
 			system("cls");
@@ -39,13 +49,16 @@ void main(void)
 			cout << "My background color is " << sys_colors() << endl;
 			break;
 		case'7':
+		{	
 			system("cls");
 			SYSTEMTIME sys_time;
 			local_time(&sys_time);
 			cout << "My date is " << setfill('0') << setw(2) << sys_time.wDay << "." << setfill('0') << setw(2) << sys_time.wMonth << "." << sys_time.wYear << endl;
 			cout << "My time is " << setfill('0') << setw(2) << sys_time.wHour << ":" << setfill('0') << setw(2) << sys_time.wMinute << ":" << setfill('0') << setw(2) << sys_time.wSecond << endl;
 			break;
+		}
 		case'8':
+		{
 			system("cls");
 			SYSTEM_INFO sys_info;
 			_MEMORYSTATUSEX mem_info;
@@ -53,7 +66,6 @@ void main(void)
 			mem_info.dwLength = sizeof(_MEMORYSTATUSEX);
 			GlobalMemoryStatusEx(&mem_info);
 
-  
 			cout << "Processor and some system information:" << endl;
 			cout << "processor type: \t" << sys_info.dwProcessorType << endl;
 			cout << "number of processors (logic cores): \t\t" << sys_info.dwNumberOfProcessors << endl;
@@ -62,7 +74,7 @@ void main(void)
 			cout << "minimum application address: \t" << sys_info.lpMinimumApplicationAddress << endl;
 			cout << "maximum application address: \t" << sys_info.lpMaximumApplicationAddress << endl;
 			cout << "page size: \t" << sys_info.dwPageSize << endl;
-			
+
 			cout << "\nMemory information:" << endl;
 			cout << "memory load: \t\t" << mem_info.dwMemoryLoad << "%" << endl;
 			cout << "available memory: \t" << mem_info.ullAvailPhys / 1048576 << " MB" << endl;
@@ -72,7 +84,9 @@ void main(void)
 
 			cout << "My system works " << works_time() << " hours" << endl;
 			cout << "My boot disk is " << drive_type() << endl;
+
 			break;
+		}
 		case'9':
 			exit(0);
 		}
