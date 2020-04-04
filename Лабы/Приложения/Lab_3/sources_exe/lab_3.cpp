@@ -4,7 +4,7 @@ void main(void)
 {
 	do
 	{
-		cout << "Select one of the following tasks:\n1 - CriticalSection\n2 - Mutex\n3 - Event\n4 - exit" << endl;
+		cout << "Select one of the following tasks:\n1 - CriticalSection\n2 - Mutex\n3 - Event\n4 - Exit" << endl;
 		
 		switch (_getch())
 		{
@@ -44,7 +44,7 @@ void main(void)
 			HANDLE evnt0 = CreateEvent(NULL, FALSE, FALSE, NULL);
 			HANDLE evnt1 = CreateEvent(NULL, FALSE, FALSE, NULL);
 			string out;
-			cin >> out;
+			getline(cin, out);
 			thread thrd0(txt_write, evnt0, ref(out));
 			thread thrd1(txt_sort, evnt0, evnt1);
 			thread thrd2(txt_read, evnt1, ref(out));

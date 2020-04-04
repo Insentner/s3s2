@@ -42,10 +42,10 @@ int main()
 				MEMORYSTATUSEX statex;
 
 				statex.dwLength = sizeof(statex);
-
+				
 				GlobalMemoryStatusEx(&statex);
 
-				printf("Всего        %*I64d MB физической памяти.\n", WIDTH, statex.ullTotalPhys / DIV);
+				printf("Всего        %*I64d MB физической памяти.\n", 8, statex.ullTotalPhys / DIV);
 				printf("Свободно     %*I64d MB физической памяти.\n", WIDTH, statex.ullAvailPhys / DIV);
 				int nphis = 100 * (statex.ullAvailPhys / DIV) / (statex.ullTotalPhys / DIV) / 2;
 				cout << "Диаграмма:" << endl;
@@ -84,7 +84,7 @@ int main()
 					size_t pageSize = membaseinfo.RegionSize;
 					std::string statembi;
 					std::string protectmbi;
-					if (result != NULL) {
+					if (result) {
 						if (membaseinfo.State == MEM_COMMIT)
 						{
 							statembi += "MEM_COMMIT";
